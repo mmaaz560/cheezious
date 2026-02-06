@@ -13,12 +13,19 @@
         }
         .sidebar{
             transition: all 0.5s ;
+            
+        }
+        .buttan:hover{
+              background-color: chocolate
+        }
+        .main-img{
+            transition: all 0.7s;
         }
      </style>
 </head>
 <body>
-     <!--side card  -->
-     <div class="w-100 min-vh-100 underlay top-0 position-fixed" style="background-color: rgba(0,0,0,0.5)">
+     <!--side card which is open by clicking on list icon -->
+     <div class="w-100 min-vh-100 underlay z-3 top-0 position-fixed" style="background-color: rgba(0,0,0,0.5)">
         <div class="col-lg-4 sidebar hide p-5 col-md-5 col-6 bg-white min-vh-100">
             <div class="d-flex align-items-center gap-4">
                 <i style="width: 50px; height: 50px;border-radius:50%;" class="bi bi-person bg-warning d-flex justify-content-center align-items-center fs-2 fw-bold"></i>
@@ -27,7 +34,7 @@
                     <h5 class="my-1">World of flavors</h5>
                 </div>
             </div>
-            <button class="btn btn-outline-dark border border-2 rounded-3 border-black my-4 px-3">LOGIN</button>
+            <button class="btn btn-outline-dark border buttan border-2 rounded-3 border-black my-4 px-3">LOGIN</button>
        
         <hr>
         <ul class="list-unstyled">
@@ -52,7 +59,7 @@
        </div>
      </div>
 
-
+<!-- navbar -->
     <div class="d-flex justify-content-between p-2 px-3 align-items-center">
         <div class="d-flex justify-content-center gap-3 align-items-center">
             <img  src="https://cheezious.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fstack.54881ee4.png&w=256&q=75" class="icon" width="30px" alt="">
@@ -85,6 +92,20 @@
 
     </div>
 
+    <!-- main cards which change atomatically -->
+     <div class="images position-relative " style="height:70vh; width: 100%">
+         <img class="position-absolute  main-img object-fit-cover"
+          src="https://cheezious.com/_next/image?url=https%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1767026843755-CH%20-%20Kasur%20KV%201520x460%20px%20V3%20(1).jpg&w=3840&q=75" height="100%" width="100%" alt="">
+         <img class="position-absolute  main-img object-fit-cover"
+          src="https://cheezious.com/_next/image?url=https%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1766418772820-1520%20x%20460%20px%20NEw%20%201.jpg&w=3840&q=75" height="100%" width="100%" alt="">
+         <img class="position-absolute  main-img object-fit-cover"
+          src="https://cheezious.com/_next/image?url=https%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1764681926332-Web%20Banner_Amanah%20Mall_1520x460_opt-3%20pixels.png&w=1080&q=75" height="100%" width="100%" alt="">
+         <img class="position-absolute  main-img object-fit-cover"
+          src="https://cheezious.com/_next/image?url=https%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1763728179352-Web%20banner%20(3.png&w=1080&q=75" height="100%" width="100%" alt="">
+         <img class="position-absolute  main-img object-fit-cover"
+          src="https://cheezious.com/_next/image?url=https%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1759214309912-Web%20Banner_1520x460%20pixels_Beef%20Peperoni.png&w=1080&q=75" height="100%" width="100%" alt="">
+
+    </div>
 
 
 
@@ -92,6 +113,7 @@
         let icon = document.querySelector('.icon')
         let sidebar = document.querySelector('.sidebar')
         let underlay = document.querySelector('.underlay')
+        let mainImgs = document.querySelectorAll('.main-img')
 
         icon.addEventListener('click',()=>{
             underlay.style.visibility = 'visible'
@@ -105,6 +127,18 @@
         sidebar.addEventListener('click',(e)=>{
             e.stopPropagation()
         })
+
+         count=0
+        setInterval(()=>{
+            if(count > mainImgs.length - 1){
+                count = 0
+            }
+            mainImgs.forEach((item,index)=>{
+                item.style.opacity = '0'
+            })
+            mainImgs[count].style.opacity = '1'
+            count++
+        },2000)
     </script>
     
 </body>
