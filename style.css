@@ -1,9 +1,26 @@
+  *{
+    margin: 0;
+    padding: 0;
+    
+  }
   body{
-            overflow: hidden;
+            /* overflow: hidden; */
         }
         li:hover{
             background-color: var(--bs-warning);
             border-radius: 10px;
             cursor: pointer;
 
+        }
+
+        .bg-gray{
+            background-color: #F4EDED;
+        }
+
+
+        @media (max-width:768px) {
+            body{
+                overflow: auto !important;
+            }
+            
         }
