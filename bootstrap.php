@@ -10,3 +10,5 @@
 
 <title>cheezious</title>
 
+<link rel="stylesheet" href="./style.css">
+

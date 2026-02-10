@@ -5,15 +5,7 @@
     <?php include './bootstrap.php'?>
     <title>admin-dashboard</title>
     <style>
-        body{
-            overflow: hidden;
-        }
-        li:hover{
-            background-color: var(--bs-warning);
-            border-radius: 10px;
-            cursor: pointer;
-
-        }
+      
     </style>
 </head>
 <body>
@@ -59,8 +51,7 @@
 
        </div>
        <div class="col-xl-9 col-lg-9 col-md-8 min-vh-100">
-        
-       </div>
+</div>
     </div>
 </body>
 </html>

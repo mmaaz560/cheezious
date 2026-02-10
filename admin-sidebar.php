@@ -1,5 +1,4 @@
-    <div class="row">
-       <div class="col-xl-3 col-lg-3 col-md-4 shadow min-vh-100">
+    <div class="col-xl-3 col-lg-3 col-md-4 shadow min-vh-100">
         <h2 class="fw-bold text-center py-3 ">
             Cheezymeal <i class="bi bi-circle-fill text-warning fs-6 py-0"></i></h2>
         <ul class="list-unstyled px-5 fw-semibold">
@@ -38,8 +37,5 @@
 
         </ul>
 
-       </div>
-       <div class="col-xl-9 col-lg-9 col-md-8 min-vh-100">
-        
-       </div>
-    </div>
+ </div>
+       
