@@ -52,9 +52,9 @@
                    <label class="form-label fw-medium">Availability</label>
                    <select name="available" class="form-select  form-select-lg">
                      <option selected disabled>All Day</option>
-                     <option>Breakfast</option>
-                     <option>Lunch</option>
-                     <option>Dinner</option>  
+                     <option value="Breakfast">Breakfast</option>
+                     <option value="Lunch">Lunch</option>
+                     <option value="Dinner">Dinner</option>  
                    </select>
                  </div>
          
