@@ -11,14 +11,45 @@
      <?php include './admin-sidebar.php'?>
       <div style=" background-color: #F4EDED;"
        class="col-xl-9 col-lg-9 col-md-8  px-5  min-vh-100">
-        <div class="container p-5">
+ <div class="d-flex flex-column admin_from overflow-y-scroll" style="height: 100vh;">
+
+  
+  
+       <!-- category card -->
+       <div class="container p-5">
+        <div class="card border-0">
+          <div class="card-header bg-warning-soft py-4 px-4 border-0">
+               <h4 class="fw-semibold mb-1">
+                 <i class="bi bi-tags me-2"></i>
+                 Add Category
+               </h4>
+          </div>
+          <form action="./add-category.php" method="POST" class="row g-4 p-4">
+         
+                <div class="col-6">
+                     <label class="form-label fw-medium">Category Name</label>
+                     <input type="text" name="cate_name" class="form-control form-control-lg" placeholder="Enter category name">
+               </div>
+        
+                 <div class="col-12 text-end">
+                     <button class="btn btn-warning px-4 py-2 fw-semibold">
+                         Save Category
+                     </button>
+                 </div>
+         </form>
+         </div>
+       </div>
+        
+       
+       <!-- Product card -->
+       <div class="container p-5">
            <div class="card shadow-lg border-0 rounded-3">
              
              <!-- Header -->
              <div class="card-header bg-warning-soft py-4 px-4 border-0">
                <h4 class="fw-semibold mb-1">
                  <i class="bi bi-tags me-2"></i>
-                 Categories
+                 Add Product
                </h4>
                <p class="text-muted mb-0 small">
                  Organize your restaurant's menu beautifully
@@ -27,17 +58,21 @@
          
              <!-- Body -->
              <div class="card-body p-4 bg-white">
-               <form action="./add-category.php" enctype="multipart/form-data" method="POST" class="row g-4">
+               <form action="./add-product.php" enctype="multipart/form-data" method="POST" class="row g-4">
          
-                 <!-- Category Name -->
-                 <div class="col-12">
-                   <label class="form-label fw-medium">Category Name</label>
-                   <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter category name">
+                 <!-- product Name -->
+                 <div class="col-6">
+                   <label class="form-label fw-medium">Product Name</label>
+                   <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter product name">
+                 </div>
+                 <div class="col-6">
+                   <label class="form-label fw-medium">Product Price</label>
+                   <input type="text" name="price" class="form-control form-control-lg" placeholder="e.g 600">
                  </div>
          
-                 <!-- Category Image -->
+                 <!-- product Image -->
                  <div class="col-12">
-                   <label class="form-label fw-medium">Category Image</label>
+                   <label class="form-label fw-medium">Product Image</label>
                    <input type="file" name="image" class="form-control form-control-lg">
                  </div>
          
@@ -91,7 +126,7 @@
           </div>
        </div>
 
-
+      </div>
       </div>
    </div>
   </body>

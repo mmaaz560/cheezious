@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <?php include './bootstrap.php'?>
-     <style>
+
+<style>
         .hide{
             transform: translateX(-100%);
+        }
+        .icon{
+            cursor: pointer;
         }
         .underlay{
             visibility: hidden;
@@ -24,79 +28,14 @@
      </style>
 </head>
 <body>
-     <!--side card which is open by clicking on list icon -->
-     <div class="w-100 min-vh-100 underlay z-3 top-0 position-fixed" style="background-color: rgba(0,0,0,0.5)">
-        <div class="col-lg-4 sidebar hide p-5 col-md-5 col-6 bg-white min-vh-100">
-            <div class="d-flex align-items-center gap-4">
-                <i style="width: 50px; height: 50px;border-radius:50%;" class="bi bi-person bg-warning d-flex justify-content-center align-items-center fs-2 fw-bold"></i>
-                <div class="">
-                    <p class="my-1">Login to explore</p>
-                    <h5 class="my-1">World of flavors</h5>
-                </div>
-            </div>
-            <button class="btn btn-outline-dark border buttan border-2 rounded-3 border-black my-4 px-3">LOGIN</button>
-       
-        <hr>
-        <ul class="list-unstyled">
-            <li class="d-flex gap-3 align-items-center my-3">
-                <i class="bi bi-grid fs-4"></i>
-                <h6 class="my-1">Explore Menu</h6>
-            </li>
-            <li class="d-flex gap-3 align-items-center my-3">
-                <i class="bi bi-shop fs-4"></i>
-                <h6 class="my-1">Branch Locator</h6>
-            </li>
-        </ul>
-        <hr>
-        <ul class="list-unstyled my-4">
-            <li class="my-3">
-                <h6>Blog</h6>
-            </li>
-            <li class="my-3">
-                <h6>Privacy Policy</h6>
-            </li>
-        </ul>
-       </div>
-     </div>
-
-<!-- navbar -->
-    <div class="d-flex justify-content-between p-2 px-3 align-items-center">
-        <div class="d-flex justify-content-center gap-3 align-items-center">
-            <img  src="https://cheezious.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fstack.54881ee4.png&w=256&q=75" class="icon" width="30px" alt="">
-            <img class="d-none d-lg-block" src="https://cheezious.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FmainLogo.c4a33b22.png&w=1200&q=75" width="150px" alt="">
-        </div>
-        
-         <img class="d-lg-none d-md-block" src="https://cheezious.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FmainLogo.c4a33b22.png&w=1200&q=75" width="150px" alt="">
-    
-
-        <div class="d-flex gap-4 d-lg-block d-none">
-            <button class="btn btn-warning fw-semibold">
-                <i class="bi bi-cart-fill"></i>
-                CART
-            </button>
-            <button class="btn btn-warning fw-semibold">
-                <i class="bi bi-person-fill"></i>
-                LOGIN
-            </button>
-
-        </div>
-        <div class="d-flex gap-1 d-lg-none ">
-            <button class="btn  fw-bold">
-                <i class="bi bi-cart fs-3 text-danger"></i>
-            </button>
-            <button class="btn fw-bold">
-                <i class="bi bi-person fs-3 text-danger"></i>
-            </button>
-
-        </div>
-
-    </div>
+   
+<?php
+ include './navebar.php';
+?>
 
     <!-- main cards which change atomatically -->
      <div class="images position-relative " style="height:70vh; width: 100%">
-         <img class="position-absolute  main-img object-fit-cover"
-          src="https://cheezious.com/_next/image?url=https%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1767026843755-CH%20-%20Kasur%20KV%201520x460%20px%20V3%20(1).jpg&w=3840&q=75" height="100%" width="100%" alt="">
-         <img class="position-absolute  main-img object-fit-cover"
+        <img class="position-absolute  main-img object-fit-cover"
           src="https://cheezious.com/_next/image?url=https%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1766418772820-1520%20x%20460%20px%20NEw%20%201.jpg&w=3840&q=75" height="100%" width="100%" alt="">
          <img class="position-absolute  main-img object-fit-cover"
           src="https://cheezious.com/_next/image?url=https%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1764681926332-Web%20Banner_Amanah%20Mall_1520x460_opt-3%20pixels.png&w=1080&q=75" height="100%" width="100%" alt="">
@@ -109,24 +48,65 @@
 
 
 
+
+  <div class="container p-5" >
+     <div class="d-flex justify-content-between gap-3 align-items-center">
+        <h2>Explore Menu</h2>
+        <a href="./all-menu.php" class="text-danger text-decoration-none fs-6 fw-bold">VIEW ALL</a>
+     </div>
+     
+        <?php
+        include './config.php';
+        $select = "SELECT * FROM products";
+        $result = mysqli_query($connection,$select);
+        if(mysqli_num_rows($result) > 0){
+            ?>
+
+    <div class="position-relative">
+         <i class="bi bi-chevron-left  left  d-flex justify-content-center align-items-center text-danger z-3 position-absolute bg-warning rounded-1" 
+         style="width:30px;height:30px;display:block; top:50%;left:10px"></i>
+         <i class="bi bi-chevron-right  right d-flex justify-content-center align-items-center  text-danger z-3 position-absolute bg-warning rounded-1" 
+         style="width:30px;height:30px;display:block; top:50%; right:-6px; transform: translateX(-50%); "></i>
+    <div class=" d-flex container px-0 gap-3 menu overflow-x-scroll pt-5" style= "width:95%;">
+        
+
+      <?php
+        include './config.php';
+        $select = "SELECT * FROM products";
+        $result = mysqli_query($connection,$select);
+        foreach($result as $item){
+            ?>
+            
+                 <div class="col-lg-3   col-md-6 " >
+                  <div class="card   text-center border-warning" style="width: 200px;height:100%;" >
+                    <img src="./category_image/<?php echo $item['image']?>" width="80%" height="150px" class="mx-auto" alt="">
+                    <h5><?php echo $item['name']?></h5>
+                 </div>
+                </div>
+                
+          <?php
+            }
+        ?>
+     
+    </div>
+    </div>
+    <?php
+        }else{
+            echo "<h3 class='text-center'>No items available</h3>";
+        }
+    ?>
+ </div>
+
+
     <script>
-        let icon = document.querySelector('.icon')
-        let sidebar = document.querySelector('.sidebar')
-        let underlay = document.querySelector('.underlay')
+      
         let mainImgs = document.querySelectorAll('.main-img')
+        let left = document.querySelector('.left')
+        let right = document.querySelector('.right')
+        let menu = document.querySelector('.menu')
 
-        icon.addEventListener('click',()=>{
-            underlay.style.visibility = 'visible'
-            sidebar.classList.remove('hide')
-        })
-        underlay.addEventListener('click',()=>{
-            underlay.style.visibility = 'hidden'
-            sidebar.classList.add('hide')
-        })
 
-        sidebar.addEventListener('click',(e)=>{
-            e.stopPropagation()
-        })
+      
 
          count=0
         setInterval(()=>{
@@ -139,6 +119,21 @@
             mainImgs[count].style.opacity = '1'
             count++
         },2000)
+
+        right.addEventListener('click',()=>{
+            menu.scrollBy({
+                left:260,
+                behavior:'smooth'
+            })
+        })
+        left.addEventListener('click',()=>{
+            menu.scrollBy({
+                left:-260,
+                behavior:'smooth'
+            })
+        })
+
+
     </script>
     
 </body>
